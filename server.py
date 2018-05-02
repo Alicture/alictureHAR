@@ -1,11 +1,14 @@
-from flask import Flask, jsonify, render_template, request, Blueprint
-import random
-from utils import *
-# import recite
-app = Flask(__name__)
-# ck = Blueprint('ck_page', __name__, static_folder=chartkick.js(), static_url_path='/static')
-# app.register_blueprint(ck, url_prefix='/ck')
-# app.jinja_env.add_extension("chartkick.ext.charts")
+from cloudant import Cloudant
+from flask import Flask, render_template, request, jsonify
+import atexit
+import os
+import json
+
+app = Flask(__name__, static_url_path='')
+
+db_name = 'mydb'
+client = None
+db = None
 
 if 'VCAP_SERVICES' in os.environ:
     vcap = json.loads(os.getenv('VCAP_SERVICES'))
