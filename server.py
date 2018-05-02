@@ -4,7 +4,7 @@ import atexit
 import os
 import json
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__)
 
 db_name = 'mydb'
 client = None
