@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://vr.google.com/daydream/developers/ -->
+<html lang="en" style="" class="csscalc no-touchevents backgroundcliptext flexbox gr__vr_google_com">
+
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="static/echarts.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    @charset "UTF-8";
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicture HAR project</title>
+    <meta content="Daydream – Developers" itemprop="headline">
+    <meta content="Daydream takes you on incredible adventures in virtual reality. Get ready to immerse yourself in all the things you love." itemprop="description">
+    <meta content="https://vr.google.com/daydream/static/images/meta/google-daydream.jpg" itemprop="image">
+    <meta property="og:title" content="Daydream – Developers">
+    <meta property="og:image" content="https://vr.google.com/daydream/static/images/meta/google-daydream.jpg">
+    <meta property="og:url" content="https://vr.google.com/daydream/developers">
+    <meta property="og:description" content="Daydream takes you on incredible adventures in virtual reality. Get ready to immerse yourself in all the things you love.">
+    <link rel="icon" href="/static/favcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/icon">
+    <link rel="stylesheet" href="/static/css">
+    <link rel="stylesheet" href="/static/main.min.css">
+    <script type="text/javascript" async="" src="static/ga.js"></script>
+    <script type="text/javascript" id="www-widgetapi-script" src="static/www-widgetapi.js" async=""></script>
+    <script async="" src="static/gtm.js"></script>
+    <script src="static/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.min.js ') }}">\x3C/script>')
+    </script>
+    <script type=text/javascript>
+    $(function() {
+        $.ajaxSetup({ async: false });
+        setInterval(function() {
+            $.get('/randomtest', {}, function(data) {
+                myChart.setOption({
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: '读数',
+                        data: data.data
+                    }]
+                });
+            });
+        }, 500);
+
+    });
+    </script>
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+
+    })(window, document, 'script', 'dataLayer', 'GTM-PGX63J');
+    </script>
+    <style type="text/css" abt="234"></style>
+    <script src="static/modernizr.js"></script>
+    <script src="static/angular.min.js"></script>
+    <script>
+    //console.log('a')
+    </script>
+    <link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
+    <script type="text/javascript" charset="UTF-8" src="static/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="static/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="static/stats.js"></script>
+</head>
+
+<body page="developers" class="" data-gr-c-s-loaded="true" style="">
+    <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGX63J" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+    <header navigation="" class="header header-with-subnav ng-scope" ng-class="{'mobile-nav-active': mobileNav,'header-hidden': hideNav}">
+        <!-- <a class="header-logo" href="/static/logo.png" data-g-event="main-nav" data-g-action="clicked" data-g-label="logo">
+   
+  </a> -->
+        <img class="header-logo" src="static/logo.png" />
+        <ul class="header-nav hidden-xs hidden-sm">
+            <li class="header-nav-item">
+                <a href="/index" data-g-event="main-nav" data-g-action="clicked" data-g-label="smartphone-vr">
+          Samrt HAR 
+        </a>
+            </li>
+            <li class="header-nav-item active">
+                <a href="/datacenter" data-g-event="main-nav" data-g-action="clicked" data-g-label="standalone-vr">
+          Data Center
+        </a>
+            </li>
+            <li class="header-nav-item">
+                <a href="/demo" data-g-event="main-nav" data-g-action="clicked" data-g-label="experiences">
+          Demo
+        </a>
+            </li>
+        </ul>
+        <button class="header-burger" ng-click="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <navigation-mobile class="mobile-nav visible-sm visible-xs ng-scope" ng-class="{'active': active}">
+        <ul class="mobile-nav-items">
+            <li class="mobile-nav-item">
+                <a href="/index" data-g-event="main-nav" data-g-action="clicked" data-g-label="smartphone-vr-mobile">
+          Samrt HAR 
+        </a>
+            </li>
+            <li class="mobile-nav-item active">
+                <a href="/datacenter" data-g-event="main-nav" data-g-action="clicked" data-g-label="standalone-vr-mobile">
+          Data Center
+        </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="/demo" data-g-event="main-nav" data-g-action="clicked" data-g-label="experiences-mobile">
+          Demo
+        </a>
+            </li>
+        </ul>
+        </div>
+    </navigation-mobile>
+    <main class="main-container">
+        <section class="devs-hero" style="background-image: url(static/hero-bg.jpg)">
+            <div class="devs-hero-content container-padding">
+                <h1 class="color-dd-gradient">实时传感器参数柱状图</h1>
+                <div id='datachart' style="width: 600px;height:400px;">
+                </div>
+            </div>
+            <script type=text/javascript>
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('datachart'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: '传感器实时数据',
+                    textStyle: {
+                        fontWeight: 'normal', //标题颜色  
+                        color: 'white'
+                    },
+                },
+                tooltip: {},
+                legend: {
+                    data: ['读数'],
+                    textStyle: {
+                        fontWeight: 'normal', //标题颜色  
+                        color: 'white'
+                    },
+                },
+                xAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white',
+                            width: 2
+                        }
+                    },
+                    data: ["x1", "y1", "z1", "x2", "y2", "z2", "x3", "y3", "z3", "x4", "y4", "z4"]
+
+                },
+                yAxis: {
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white',
+                            width: 2
+                        }
+                    }
+                },
+                series: [{
+                    name: '读数',
+                    type: 'bar',
+                    data: []
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            </script>
+        </section>
+        <section class="standalonevr-headsets container-fluid">
+  <div class="standalonevr-headsets-top container-padding ng-isolate-scope fade-up-large" scroll-animation="" scroll-animation-class="fade-up-large">
+  </div>
+
+  <div class="standalonevr-headsets-content col-sm-10 col-sm-offset-1 container-padding ng-isolate-scope fade-up-large" scroll-animation="" scroll-animation-class="fade-up-large">
+      <div class="standalonevr-headsets-device container-padding-left container-padding-right ng-isolate-scope fade-up-large" scroll-animation="" scroll-animation-class="fade-up-large">
+
+        <img src="https://vr.google.com/daydream/static/images/pages/standalonevr/10-vega-hero-bundled-with-rigel.jpg" alt="Lenovo Mirage Solo with Daydream">
+        <h2 class="color-dd-gradient">Lenovo Mirage Solo with Daydream</h2>
+
+        <span class="line-divider"></span>
+        <a href="http://www.lenovo.com/daydreamvr" target="_blank" class="cta-external" data-g-event="cta" data-g-action="clicked" data-g-label="lenovo-learn-more">
+    Learn More
+
+<svg class="launch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g fill="none" fill-rule="evenodd" stroke="#22B7D7" stroke-width="1.5">
+    <polyline class="launch-icon-line" points="4.311 1 1 1 1 15 15 15 15 11.676"></polyline>
+    <g transform="translate(6 1)">
+      <polyline points="2 0 9 0 9 7.003"></polyline>
+      <path d="M8.75838999,0 L0.5,8.5"></path>
+    </g>
+  </g>
+</svg>  </a>
+
+      </div>
+  </div>
+</section>
+        <!-- <section class="standalonevr-hero-video">
+            <video src="/static/Neural Network 3D Simulation.mp4" autoplay="" preload="" loop="" muted="" playsinline="">
+            </video>
+            <a class="standalonevr-hero-video-play ng-scope" href="https://youtu.be/3JQ3hYko51Y" target="_blank" modal-video-trigger>
+      <i class="material-icons">play_circle_outline</i>
+    </a>
+        </section> -->
+        <section class="devs-sdks container-fluid">
+            <div class="devs-sdks-section ng-isolate-scope" scroll-animation="" scroll-animation-class="fade-up-large">
+                <div class="devs-sdks-section-logo">
+                    <img src="static/icon-android.svg" alt="Android SDK">
+                </div>
+                <div class="devs-sdks-section-content">
+                    <h3>传统机器学习</h3>
+                    <p class="small">使用传统机器学习算法...</p>
+                    <a href="/ml" target="_blank" class="cta-external" data-g-event="cta" data-g-action="clicked" data-g-label="android-sdk-learn-more">
+    Learn More
+
+<svg class="launch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g fill="none" fill-rule="evenodd" stroke="#22B7D7" stroke-width="1.5">
+    <polyline class="launch-icon-line" points="4.311 1 1 1 1 15 15 15 15 11.676"></polyline>
+    <g transform="translate(6 1)">
+      <polyline points="2 0 9 0 9 7.003"></polyline>
+      <path d="M8.75838999,0 L0.5,8.5"></path>
+    </g>
+  </g>
+</svg>  </a>
+                </div>
+            </div>
+            <div class="devs-sdks-section ng-isolate-scope" scroll-animation="" scroll-animation-class="fade-up-large">
+                <div class="devs-sdks-section-logo">
+                    <img src="static/icon-unity.svg" alt="Unity SDK">
+                </div>
+                <div class="devs-sdks-section-content">
+                    <h3>卷积神经网络</h3>
+                    <p class="small">使用卷积神经网络...</p>
+                    <a href="/cnn" target="_blank" class="cta-external" data-g-event="cta" data-g-action="clicked" data-g-label="unity-sdk-learn-more">
+    Learn More
+
+<svg class="launch-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g fill="none" fill-rule="evenodd" stroke="#22B7D7" stroke-width="1.5">
+    <polyline class="launch-icon-line" points="4.311 1 1 1 1 15 15 15 15 11.676"></polyline>
+    <g transform="translate(6 1)">
+      <polyline points="2 0 9 0 9 7.003"></polyline>
+      <path d="M8.75838999,0 L0.5,8.5"></path>
+    </g>
+  </g>
+</svg>  </a>
+                </div>
+            </div>
+        </section>
+        <modal-video class="modal-video ng-scope" ng-class="{'active': active}">
+            <div id="video-player"></div>
+            <button class="modal-video-close" ng-click="close()"></button>
+        </modal-video>
+    </main>
+    <script src="static/js"></script>
+    <script src="static/iframe_api"></script>
+    <script src="static/main.min.js"></script>
+    <script src="static/google.js"></script>
+    <script src="static/autotrack.js"></script>
+    <script>
+    var tracker = new gweb.analytics.AutoTrack({
+        profile: 'UA-57487407-10'
+    });
+    </script>
+    <script>
+    daydream.main();
+    </script>
+</body>
+
+</html>

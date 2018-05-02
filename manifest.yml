@@ -1,0 +1,4 @@
+applications:
+- name: alictureHAR
+  random-route: true
+  memory: 128M
