@@ -1,0 +1,7 @@
+{
+  "name": "Alicture HAR ML&DL API",
+  "version": "1.0.0",
+  "description": "云端可穿戴设备人体行为检测",
+  "title": "Alicture HAR Cloud API",
+  "url" : "http://localhost:8000"
+}

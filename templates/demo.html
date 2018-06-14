@@ -61,6 +61,69 @@
         f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-PGX63J');
     </script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.min.js') }}">\x3C/script>')
+    </script>
+    <script type=text/javascript>
+    $(function() {
+        $('#startdemo').bind('click', function() {
+            setInterval(function() {
+                $.getJSON('/showdemo', {
+                    weight: $('input[id="weight"]').val(),
+                    height: $('input[id="height"]').val(),
+                    age: $('input[id="age"]').val()
+                }, function(data) {
+                    var mllist=data.mlresult
+                    var dllist=data.dlresult
+                    // alert(mllist[0][0])
+                    if(mllist[0][0]=="1"){
+                        // var strml="坐着"
+                        $("#mlresult").html("坐着");
+                    }
+                    if(mllist[0][1]=="1"){
+                        // var strml="下坐"
+                        $("#mlresult").html("下坐");
+                    }
+                    if(mllist[0][2]=="1"){
+                        // var strml="站立"
+                        $("#mlresult").html("站立");
+                    }
+                    if(mllist[0][3]=="1"){
+                        // var strml="站起"
+                        $("#mlresult").html("站起");
+                    }
+                    if(mllist[0][4]=="1"){
+                        // var strml="行走"
+                        $("#mlresult").html("行走");
+                    }
+                    if(dllist[0][1]=="1"){
+                        // var strml="坐着"
+                        $("#dlresult").html("坐着");
+                    }
+                    if(dllist[0][2]=="1"){
+                        // var strml="下坐"
+                        $("#dlresult").html("下坐");
+                    } 
+                    if(dllist[0][3]=="1"){
+                        // var strml="站立"
+                        $("#dlresult").html("站立");
+                    }      
+                    if(dllist[0][4]=="1"){
+                        // var strml="站起"
+                        $("#dlresult").html("站起");
+                    }      
+                    if(dllist[0][5]=="1"){
+                        // var strml="行走"
+                        $("#dlresult").html("行走");
+                    }           
+                    // $("#dlresult").html(data.dlresult);
+
+                });
+                return false;
+            }, 1000);
+            });
+       
+    });
+    </script>
     <style type="text/css" abt="234"></style>
     <script src="static/modernizr.js"></script>
     <script src="static/angular.min.js"></script>
@@ -96,6 +159,11 @@
           Demo
         </a>
             </li>
+            <li class="header-nav-item">
+                <a href="/docs" data-g-event="main-nav" data-g-action="clicked" data-g-label="experiences">
+          API DOC
+        </a>
+            </li>
         </ul>
         <button class="header-burger" ng-click="toggleMobileNav()">
             <span></span>
@@ -120,6 +188,11 @@
           Demo
         </a>
             </li>
+            <li class="mobile-nav-item">
+                <a href="/docs" data-g-event="main-nav" data-g-action="clicked" data-g-label="experiences">
+          API DOC
+        </a>
+            </li>
         </ul>
         </div>
     </navigation-mobile>
@@ -142,44 +215,58 @@
                 <span class="line-divider hidden-xs"></span>
             </div>
         </section>
-    
-    <div class="svr-find-demo ng-scope" svr-find-demo="" url="/daydream/smartphonevr/demo">
-        <div class="container-fluid container-padding">
-            <div class="col-sm-5 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-2 container-padding-right">
-                <h2>体验先端可穿戴设备人体行为感知</h2>
-                <p></p>
-                <demo-search class="map-search" outside-click="clear()">
-                    <i class="material-icons map-search-icon-search">accessibility</i>
-                    <i class="material-icons map-search-icon-reset ng-hide" ng-show="searchVal.length" ng-click="reset()">close</i>
-                    <i class="material-icons map-search-icon-back" ng-click="close()">arrow_back</i>
-                    <input type="text" class="map-search-input-autofill" ng-value="setAutofillText()" value="">
-                    <input type="text" id='weight' placeholder="输入体重" class="map-search-input ng-pristine ng-untouched ng-valid ng-empty" ng-keyup="inputKeyup($event)" ng-keydown="inputKeydown($event)" ng-focus="inputFocus()" ng-model="searchVal">
-                    <ul class="map-search-suggestions ng-hide" ng-show="suggestions.length">
-                        <!-- ngRepeat: suggestion in suggestionsList track by $index -->
-                    </ul>
-                </demo-search>
-                <demo-search class="map-search" outside-click="clear()">
-                    <i class="material-icons map-search-icon-search">accessibility</i>
-                    <i class="material-icons map-search-icon-reset ng-hide" ng-show="searchVal.length" ng-click="reset()">close</i>
-                    <i class="material-icons map-search-icon-back" ng-click="close()">arrow_back</i>
-                    <input type="text" class="map-search-input-autofill" ng-value="setAutofillText()" value="">
-                    <input type="text" id='height' placeholder="输入身高" class="map-search-input ng-pristine ng-untouched ng-valid ng-empty" ng-keyup="inputKeyup($event)" ng-keydown="inputKeydown($event)" ng-focus="inputFocus()" ng-model="searchVal">
-                    <ul class="map-search-suggestions ng-hide" ng-show="suggestions.length">
-                        <!-- ngRepeat: suggestion in suggestionsList track by $index -->
-                    </ul>
-                </demo-search>
+        <div class="svr-find-demo ng-scope" svr-find-demo="" url="/daydream/smartphonevr/demo">
+            <div class="container-fluid container-padding">
+                <div class="col-sm-5 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-2 container-padding-right">
+                    <h2>体验先端可穿戴设备人体行为感知</h2>
+                    <p></p>
+                    <demo-search class="map-search" outside-click="clear()">
+                        <i class="material-icons map-search-icon-search">accessibility</i>
+                        <i class="material-icons map-search-icon-reset ng-hide" ng-show="searchVal.length" ng-click="reset()">close</i>
+                        <i class="material-icons map-search-icon-back" ng-click="close()">arrow_back</i>
+                        <input type="text" class="map-search-input-autofill" ng-value="setAutofillText()" value="">
+                        <input type="text" id='weight' placeholder="输入体重" class="map-search-input ng-pristine ng-untouched ng-valid ng-empty" ng-keyup="inputKeyup($event)" ng-keydown="inputKeydown($event)" ng-focus="inputFocus()">
+                        <ul class="map-search-suggestions ng-hide" ng-show="suggestions.length">
+                            <!-- ngRepeat: suggestion in suggestionsList track by $index -->
+                        </ul>
+                    </demo-search>
+                    <demo-search class="map-search" outside-click="clear()">
+                        <i class="material-icons map-search-icon-search">accessibility</i>
+                        <i class="material-icons map-search-icon-reset ng-hide" ng-show="searchVal.length" ng-click="reset()">close</i>
+                        <i class="material-icons map-search-icon-back" ng-click="close()">arrow_back</i>
+                        <input type="text" class="map-search-input-autofill" ng-value="setAutofillText()" value="">
+                        <input type="text" id='height' placeholder="输入身高" class="map-search-input ng-pristine ng-untouched ng-valid ng-empty" ng-keyup="inputKeyup($event)" ng-keydown="inputKeydown($event)" ng-focus="inputFocus()">
+                        <ul class="map-search-suggestions ng-hide" ng-show="suggestions.length">
+                            <!-- ngRepeat: suggestion in suggestionsList track by $index -->
+                        </ul>
+                    </demo-search>
+                    <demo-search class="map-search" outside-click="clear()">
+                        <i class="material-icons map-search-icon-search">accessibility</i>
+                        <i class="material-icons map-search-icon-reset ng-hide" ng-show="searchVal.length" ng-click="reset()">close</i>
+                        <i class="material-icons map-search-icon-back" ng-click="close()">arrow_back</i>
+                        <input type="text" class="map-search-input-autofill" ng-value="setAutofillText()" value="">
+                        <input type="text" id='age' placeholder="输入年龄" class="map-search-input ng-pristine ng-untouched ng-valid ng-empty" ng-keyup="inputKeyup($event)" ng-keydown="inputKeydown($event)" ng-focus="inputFocus()">
+                        <ul class="map-search-suggestions ng-hide" ng-show="suggestions.length">
+                            <!-- ngRepeat: suggestion in suggestionsList track by $index -->
+                        </ul>
+                    </demo-search>
+                    <a id="startdemo" class="devs-hero-cta button button-icon" href="" data-g-event="cta" data-g-action="clicked" data-g-label="start-here">
+      开始
+     
+<i class="material-icons">launch</i>
+</a>
+                </div>
             </div>
+            <img class="svr-find-demo-image" data-color="fog" src="static/raspi3.png" alt="raspi3">
         </div>
-        <img class="svr-find-demo-image" data-color="fog" src="static/raspi3.png" alt="raspi3">
-    </div>
-    <section class="devs-sdks container-fluid">
+        <section class="devs-sdks container-fluid">
             <div class="devs-sdks-section ng-isolate-scope" scroll-animation="" scroll-animation-class="fade-up-large">
                 <div class="devs-sdks-section-logo">
                     <img src="static/icon-android.svg" alt="Android SDK">
                 </div>
                 <div class="devs-sdks-section-content">
                     <h3>传统机器学习</h3>
-                    <p class="small">K近邻算法...</p>
+                    <p id="mlresult" class="small">K近邻算法...</p>
                     <a href="/ml" target="_blank" class="cta-external" data-g-event="cta" data-g-action="clicked" data-g-label="android-sdk-learn-more">
     Learn More
 
@@ -200,7 +287,7 @@
                 </div>
                 <div class="devs-sdks-section-content">
                     <h3>卷积神经网络</h3>
-                    <p class="small">使用卷积神经网络...</p>
+                    <p id="dlresult" class="small">使用卷积神经网络...</p>
                     <a href="/cnn" target="_blank" class="cta-external" data-g-event="cta" data-g-action="clicked" data-g-label="unity-sdk-learn-more">
     Learn More
 

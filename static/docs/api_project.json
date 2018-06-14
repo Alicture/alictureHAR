@@ -1,0 +1,1 @@
+{  "name": "Alicture HAR ML&DL API",  "version": "1.0.0",  "description": "云端可穿戴设备人体行为检测",  "title": "Alicture HAR Cloud API",  "url": "http://localhost:8000",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-06-09T12:26:22.106Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }}
